@@ -1,7 +1,6 @@
 games = {}
 game_id = 0
 current_game = None
-count=0
 
 with open("games.log", "r") as file:
     for line in file:
@@ -15,16 +14,36 @@ with open("games.log", "r") as file:
                 "kills": {}
                 }
 
-        elif "Kill" in line:
+        elif "Kill:" in line:
             parts = line.split("killed")
             
-
-            left = parts[0].rsplit(":", 1)
-            right = parts[1].split("by")
-
             killer = parts[0].rsplit(":",1)[1]
             victim = parts[1].split("by")[0]
 
+            killer = killer.strip()
+            victim = victim.strip()
+
             games[current_game]["total_kills"]+=1
+                 
+            players = games[current_game]["players"]
+            kills = games[current_game]["kills"]
+
+            if killer != "<world>":
+                    if killer not in players:
+                           players.append(killer)
+                           kills[killer] = 0
+
+                    
+            if victim not in players:
+                players.append(victim)
+                kills[victim] = 0
+
+
+            if killer != "<world>":
+                 kills[killer] += 1
+            else:
+                kills[victim] -= 1
+            
+
 
 print(games)
