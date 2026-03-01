@@ -64,5 +64,5 @@ class Parser:
 
 parser = Parser("games.log")
 parser.parse()
-for game_id, game in parser.games.items():
-    print(f"{game_id}: {game}")
+for game in parser.games.values():
+    print(game)
