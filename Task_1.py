@@ -44,6 +44,4 @@ with open("games.log", "r") as file:
             else:
                 kills[victim] -= 1
             
-
-
 print(games)
