@@ -62,7 +62,8 @@ class Parser:
                     current_game.register_kill(killer, victim)
 
 
-parser = Parser("games.log")
-parser.parse()
-for game in parser.games.values():
-    print(game)
+if __name__ == "__main__":
+    parser = Parser("games.log")
+    parser.parse()
+    for game in parser.games.values():
+        print(game)
