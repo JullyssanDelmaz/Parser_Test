@@ -18,3 +18,5 @@ O parser inicia e percorre todos os objetos Game criados pelo parser na Task 1, 
 
 
 Task 3 - API de Consulta (Placeholder)
+A terceira Task consiste na criação de uma API REST utilizando FastAPI, permitindo a consulta dos dados processados na Task 1 e Task 2.
+A API disponibiliza dois endpoints principais, o primeiro é a consulta de Partida por ID e o segundo endpoint é a consulta de Ranking Geral de Kills, em forma decrescente.
